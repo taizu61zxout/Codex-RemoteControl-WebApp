@@ -25,17 +25,85 @@ Codex CLI をブラウザUIから操作するためのローカル向け Web ア
 
 Codex CLI の実行パスはデフォルトで `/opt/homebrew/bin/codex` を参照します。別の場所にある場合は `CODEX_BIN` 環境変数で指定してください。
 
-## セットアップ
+## インストールと起動
+
+### 1. リポジトリを取得する
+
+```bash
+git clone https://github.com/taizu61zxout/Codex-RemoteControl-WebApp.git
+cd Codex-RemoteControl-WebApp
+```
+
+### 2. Node.js と npm を確認する
+
+Node.js 20 以上が入っていることを確認してください。
+
+```bash
+node -v
+npm -v
+```
+
+### 3. Codex CLI を使える状態にする
+
+このアプリは内部で Codex CLI を起動します。ターミナルで `codex` コマンドが使えることを確認してください。
+
+```bash
+codex --version
+```
+
+`codex` が標準パスにない場合は、起動時に `CODEX_BIN` を指定してください。
+
+例:
+
+```bash
+CODEX_BIN=/path/to/codex npm run dev
+```
+
+### 4. 依存関係をインストールする
+
+プロジェクトルートで次を実行します。
 
 ```bash
 npm install
+```
+
+これにより、ルートの workspace 設定に従って、クライアントとサーバーの依存関係がまとめてインストールされます。
+
+### 5. 開発サーバーを起動する
+
+```bash
 npm run dev
 ```
 
-起動後のデフォルトURL:
+このコマンドで次の2つが同時に立ち上がります。
+
+- フロントエンド開発サーバー
+- バックエンド API サーバー
+
+起動後のデフォルトURL は次のとおりです。
 
 - Frontend: `http://127.0.0.1:5173`
 - Backend API: `http://127.0.0.1:3001`
+
+### 6. ブラウザで開く
+
+ブラウザで次のURLを開きます。
+
+```text
+http://127.0.0.1:5173
+```
+
+一覧画面やチャット画面が表示されれば起動成功です。
+
+### 7. 起動確認の補足
+
+うまく立ち上がらない場合は、次を確認してください。
+
+- `npm install` が正常終了しているか
+- `codex --version` が通るか
+- `CODEX_BIN` の指定先が正しいか
+- `3001` と `5173` ポートを他のアプリが使っていないか
+- macOS や Linux の権限制限で `codex` 実行がブロックされていないか
 
 ## 使い方
 
