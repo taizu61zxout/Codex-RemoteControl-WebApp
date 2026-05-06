@@ -1,0 +1,20 @@
+node_modules
+dist
+.DS_Store
+data/
+server/data/
+client/node_modules
+client/dist
+server/node_modules
+server/dist
+.playwright-mcp/
+tmp/
+*.log
+*.local
+.env
+.env.*
+!.env.example
+client/tsconfig.tsbuildinfo
+Codex Remote.command
+approval_probe.txt
+approval_shell_probe.txt

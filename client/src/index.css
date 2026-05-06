@@ -1,0 +1,141 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme inline {
+  --font-sans: "Avenir Next", "Hiragino Sans", "Noto Sans JP", sans-serif;
+  --font-serif: "Avenir Next", "Hiragino Sans", "Noto Sans JP", sans-serif;
+}
+
+:root {
+  color: #f5f5f4;
+  color-scheme: dark;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 24%),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(180deg, #0a0d10 0%, #0f1318 100%);
+  background-size: auto, 28px 28px, 28px 28px, auto;
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: #0a0d10;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: transparent;
+}
+
+input,
+textarea,
+button,
+select {
+  color-scheme: dark;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  -webkit-text-fill-color: #f5f5f4;
+  caret-color: #f5f5f4;
+  -webkit-box-shadow: 0 0 0 1000px #141a20 inset;
+  transition: background-color 9999s ease-out 0s;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+::selection {
+  background: rgba(245, 158, 11, 0.28);
+  color: #f5f5f4;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 rgba(245, 158, 11, 0);
+  }
+
+  50% {
+    box-shadow: 0 0 28px rgba(245, 158, 11, 0.08);
+  }
+}
+
+@keyframes sheet-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes status-dot {
+  0%,
+  80%,
+  100% {
+    opacity: 0.28;
+    transform: translateY(0) scale(0.92);
+  }
+
+  40% {
+    opacity: 1;
+    transform: translateY(-1px) scale(1.08);
+  }
+}
+
+.motion-fade-in {
+  animation: fade-in-up 280ms ease-out;
+}
+
+.motion-soft-glow {
+  animation: pulse-glow 4.8s ease-in-out infinite;
+}
+
+.motion-sheet-up {
+  animation: sheet-up 220ms ease-out;
+}
+
+.motion-status-dot {
+  animation: status-dot 1.2s ease-in-out infinite;
+}
+
+.motion-status-dot-1 {
+  animation-delay: 0s;
+}
+
+.motion-status-dot-2 {
+  animation-delay: 0.16s;
+}
+
+.motion-status-dot-3 {
+  animation-delay: 0.32s;
+}
